@@ -8,5 +8,6 @@ A brief is the task text for one slice: the rules that are decided, the scope, a
 | `brief-1513-events-e1a.md`                      | #1513 | Written on 2026-11-17; check it against `main`                     |
 | `brief-1521-delete-account-without-password.md` | #1521 | Ready (2026-11-18); not started                                    |
 | `brief-1574-home-and-error-pages.md`            | #1574 | In progress on 2026-11-18 (branch `fix/1574-home-and-error-pages`) |
+| `brief-657-toolkit-stories-2b.md`               | #657  | Ready (2026-11-18); not started                                    |
 
 When a slice is merged, its brief is deleted from this branch.
