@@ -31,7 +31,9 @@ An account can exist without a usable password: it signs in only through the Ope
 8. The deletion itself is the POST that exists (web) and the `DELETE` that exists (API). For an account of rule 2 it takes the recorded proof in place of the password: present, of this account, not expired, not used. It is consumed in the same transaction as the deletion, so a second request cannot use it. The two-factor code is still required when two-factor authentication is on, exactly as today. The choice "also delete my posts, comments and messages" works as today.
 9. A failed or refused proof leaves the account as it was, and says why in plain words (no detail of the token). Every refusal is logged with the reason and the account, without the token.
 
-### API parity
+### API parity (a PROPOSAL: the owner has NOT decided rule 10; get the yes of the owner before you build it)
+
+The owner decided that the web screen and the API follow the same rule. How a token client makes the proof is open. Rule 10 below is option (a). Option (b): an account without a password deletes itself only on the web, and the API refuses with the address of the page. Build rule 10 only after the owner chose (a).
 
 10. `DELETE /api/v1/user` follows the same rule. A token client cannot make the browser round trip, so: for an account of rule 2 the request succeeds when a valid proof is recorded for the account (made in a browser a short time before), with the same token ability as today and the two-factor code when it is on. Without a valid proof it answers a business error (422) whose message says that a new sign-in is needed and gives the address of the page where the person makes it. Keep the proof on the server in a place that both the web session and a token request can read (not only in the session), keyed by the account. Document it: the OpenAPI text, the Bruno request, the API README.
 11. No new token ability, and no way to make or to read a proof through the API.
