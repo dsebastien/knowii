@@ -9,7 +9,7 @@ You build the screens of events on the server part of slice E1a (#1513, ADR 0053
 3. ADRs 0053, 0044 (points 4, 6, 8, 13, 15, "Public community page"), 0048 (points 1 to 4), 0049.
 4. E1a: `app/Http/Controllers/API/EventApiController.php`, `app/Http/Resources/EventResource.php`, `app/Policies/EventPolicy.php`, `app/Models/Event.php`, `app/Actions/Events/*`, `app/Support/EventTimes.php`, `TimeZones.php`, `libs/common/src/lib/types/event.schema.ts`, `utils/time-zone.fn.ts`, `tests/Feature/EventApiTest.php`.
 5. The pattern to copy: `routes/web.php` (line 76), `app/Http/Controllers/Inertia/SpaceController.php`, `CommunityResourceController.php`, `CommunityController.php` (line 50, `showPublic`), `app/Support/PublicCommunity.php`, `NoAccess.php`; in `apps/knowii/src`: `Pages/Spaces/Show.tsx`, `Pages/Resources/Show.tsx`, `Pages/Communities/Show.tsx`, `Public.tsx`, `Components/Posts/PostList.tsx`, `Components/Reader/Reader.tsx`.
-6. The toolkit: `documentation/architecture/frontend.md` ("Toolkit", "Tests"), `Components/ui/index.ts`, `ToolkitContext.tsx`, `boundary.spec.ts`, `stories.spec.tsx`, `stories-guard.spec.ts`, `Select.tsx`.
+6. The toolkit: `documentation/architecture/frontend.md` ("Toolkit", "Tests"), `Components/ui/index.ts`, `ToolkitContext.tsx`, `boundary.spec.ts`, `stories.spec.tsx`, `stories-guard.spec.ts`, `Select.tsx`, and the four blocks of slice 4a with their stories: `Combobox.tsx`, `Badge.tsx`, `LinkTabs.tsx`, `CoverImage.tsx`.
 7. `Pages/Profile/Partials/TimeZoneForm.tsx`, `UpdateAvatarForm.tsx` (a file field), `Components/Messages/MemberPicker.tsx`, `Components/Notifications/NotificationsPanel.tsx` (line 597), `notification-link.ts` (line 48), `Components/TimeZone/TimeZoneAsk.spec.tsx` (line 200, axe).
 8. `tests/Feature/PublicSpacesTest.php`, `tools/README.md`, `tools/screen-atlas/screens.json`.
 
@@ -55,7 +55,7 @@ You build the screens of events on the server part of slice E1a (#1513, ADR 0053
 ### The host form (design 4.2, 6.3)
 
 24. `Pages/Events/Form.tsx`: react-hook-form and a Zod schema `event-request.schema.ts` in `libs/common`, with the limits of `constants.ts` (line 149). Fields, in order: "Title"; "Description" (`MarkdownEditor`); "Cover" (a file field, a preview, "Remove the cover") and "Cover description" (hint: "Leave empty when the image is decoration") [Q]; the `fieldset` "When"; "Meeting address"; "Place"; "Host" (`MemberPicker`, `max` 1, default you). No field for `location_visibility` [Q: until answers exist, `going` hides the address from every member; an edit never sends the field], the limit or the replay.
-25. "When" (design 11.1): "Start date" and "Start time" (native `date` and `time` inputs), "End time", "Time zone". "End date" shows only when the end time is not after the start time, set to the next day [Q]. "Time zone": the names of `timeZones` that the browser knows, the host's zone first. Default: the account zone, else the browser zone matched to a name of `timeZones` through `resolvedOptions().timeZone` (a browser says `Asia/Calcutta`; the server accepts only `Asia/Kolkata`), else UTC. An edit starts from `event.time_zone`.
+25. "When" (design 11.1): "Start date" and "Start time" (native `date` and `time` inputs), "End time", "Time zone". "End date" shows only when the end time is not after the start time, set to the next day [Q]. "Time zone": the toolkit `Combobox` with the entries of `timeZoneOptions()` (`time-zone.fn.ts`, #1666: "Brussels, Europe (UTC+1)"), like `TimeZoneForm.tsx`; `pinned`: the zone of the account and the zone of the browser. Default: the account zone, else `browserTimeZone()`, else UTC. An edit starts from `event.time_zone`. The zone names need no mapping: `browserTimeZone()` and the entries give the current name of a zone, and the server accepts an older name and stores the current one (#1678).
 26. A status region, updated on blur and never on each key: "Tuesday 18 November 2026, 17:00 to 18:00, Central European Standard Time (UTC+1). In your zone: <long form>." or "... In your zone: the same." [Q: the design also writes "For you:"]. A time that the zone skips: "This time does not exist in this zone. Choose 01:59 or earlier, or 03:00 or later." (`role="alert"`, nothing is sent). A time that exists twice: a radio group "02:30 in summer time (UTC+2) or in winter time (UTC+1)?" (the larger offset is summer time). The form sends `starts_at` and `ends_at` with the offset, and `time_zone`.
 27. Buttons. A new event or a draft: "Save as draft", "Publish". A published or cancelled event: "Save changes". With `canNotifyNow`, next to "Publish": a `Checkbox` "Publish now", hint "Without it, members are told after 5 minutes." [Q]; it sends `notify_now`.
 28. The cover is uploaded with `knowiiApiClient.communities.uploads.image` when the file is chosen. That route needs a description (`UploadImage.php`, line 32): send the cover description, else "Cover of an event" [Q]. `cover_alt` holds only what the host typed.
@@ -79,7 +79,7 @@ You build the screens of events on the server part of slice E1a (#1513, ADR 0053
 
 ### Toolkit (ADR 0049)
 
-37. The toolkit lacks four blocks. Build each in `Components/ui`, with a story file (one story per state, a `play` function for the keyboard path) and no import of the application (`boundary.spec.ts`): `Badge` (a text label), `LinkTabs` (links with `aria-current`, through `useToolkit().linkComponent`), `CoverImage` (the 16:9 box), `Combobox` (Headless UI `Combobox`: typing filters the list; its list in the landmark portal, like `Select`) for "Time zone" (design 11.1 point 2). If the combobox cannot pass its keyboard story, use `Select` as `TimeZoneForm.tsx` does, and say so. Feature parts go in `Components/Events`.
+37. The four blocks that these screens need exist in `Components/ui` since slice 4a of the toolkit (#1682): `Badge` (the text labels of rules 15 and 20), `LinkTabs` ("Upcoming" and "Past", rule 14), `CoverImage` (the 16:9 box of rules 15 and 19) and `Combobox` ("Time zone", rule 25). Use them as they are: read their docblocks and stories first. If one of them lacks something that a rule needs, change it in the toolkit with its story, under the toolkit rules (no import of the application, `boundary.spec.ts`), and say so in the report. Another block that is missing is built in the toolkit under the same rules. Feature parts go in `Components/Events`.
 
 ## Scope (in the commit)
 
@@ -95,7 +95,7 @@ You build the screens of events on the server part of slice E1a (#1513, ADR 0053
 1. E2 (#1515): answers, "You said Yes", "N places left", "Full", "Add to calendar", "My events", the Yes part of `going`, policy words.
 2. E3 (#1516): comments, the replay link, the notes, "A replay will exist", "cancel it first" before a delete.
 3. #1482 and later: kinds 26 to 29, reminders, emails, the "Catch up" line, the calendar feed, series, a month grid.
-4. A new API route; a change of `EventResource`, of the policies or of the actions; a fix of the zone names that the server refuses.
+4. A new API route; a change of `EventResource`, of the policies or of the actions.
 
 ## How to work
 
