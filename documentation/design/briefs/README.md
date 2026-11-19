@@ -4,7 +4,6 @@ A brief is the task text for one slice: the rules that are decided, the scope, a
 
 | Brief                                  | Issue       | State                                                                           |
 | -------------------------------------- | ----------- | ------------------------------------------------------------------------------- |
-| `brief-1477-email-groundwork-4a.md`    | #1477       | Built and reviewed, pull request #1677 (2026-11-19)                             |
 | `brief-657-toolkit-slice-4a.md`        | #657, #1666 | In build (2026-11-19)                                                           |
 | `brief-1514-events-e1b.md`             | #1514       | Written (2026-11-19); waits for the toolkit blocks of slice 4a.                 |
 | `brief-1653-instance-values-part-a.md` | #1653       | In build (2026-11-19). Part B (the legal texts) is outlined at its end.         |
