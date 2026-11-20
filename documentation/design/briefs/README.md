@@ -6,5 +6,6 @@ A brief is the task text for one slice: the rules that are decided, the scope, a
 | ---------------------------------- | ----- | -------------------------------------------------------------------------------------------------------- |
 | `approval-1653-legal-texts.md`     | #1653 | Approved by the owner on 2026-11-19 (all four points); the brief of part B follows.                      |
 | `brief-1653-legal-texts-part-b.md` | #1653 | Built and reviewed, pull request #1685 (2026-11-20): waits for the owner, who reads the seven templates. |
+| `brief-657-toolkit-slice-4b.md`    | #657  | Drafted on 2026-11-20: skeleton lines, the load more button, the question banner, the count and the dot. |
 
 When a slice is merged, its brief is deleted from this branch.
