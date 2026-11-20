@@ -1,6 +1,12 @@
 # Brief: a person who signs up from a community lands in that community after the address check (knowii-oss/knowii#1612)
 
-State: DRAFT. The issue asks for a design first. The design is in "The design" below, and the owner answers the "Questions for the owner" before the build starts.
+## Decided by the owner on 2026-11-20
+
+1. Every recommendation of "Questions for the owner" is the decision: the destination travels inside the signed link, with nothing stored; from a private community the person lands on its page without access; the session wins over the link; the sign-in link in another browser is fixed in the same commit; no confirmation text here (#1571).
+2. Since this brief was drafted, `main` got "the application answers only for its own host names" (#1690): every address that the application builds takes its host from the configuration. Read `app/Http/Middleware/AnswerOnlyForOwnHostNames.php` before the build, and keep rule 3 of this brief (a landing is a path that the router gives to a named route, never a text of the request).
+3. The slice can be built, after #1688 and #148 slice 1.
+
+State: DECIDED on 2026-11-20 (see "Decided by the owner"). The issue asks for a design first. The design is in "The design" below, and the owner answers the "Questions for the owner" before the build starts.
 
 You build #1612. A visitor reads a page of a community, signs up, and opens the link of the address check. Today the person comes back to that page only when the link opens in the same browser, with the same session. In another browser or on another device, the person lands on the dashboard. After this slice, the link of the mail carries the page, so the person lands in the community from any browser. The sign-in link by email gets the same. Nothing is stored in the database, and no screen changes. ONE commit on a local branch: a reviewer reads your diff afterwards. Paths are relative to `~/wks/knowii`.
 

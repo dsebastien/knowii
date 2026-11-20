@@ -1,6 +1,12 @@
 # Design and brief: member tags (knowii-oss/knowii#1389)
 
-State: DRAFT. Nothing is built. The owner answers the "Questions for the owner" before the build of part T1 starts. Until then, each recommendation and each [Q] rule is the proposal.
+## Decided by the owner on 2026-11-20
+
+1. Every recommendation of "Questions for the owner" is the decision for the build: no screen shows a member their own `managers` tags; the owner and the admins define the tags, and the moderators with `manage_members` assign them; no display choice per tag (T2 has one switch); the palette of eight tokens, with pictures; the words "Members" and "Managers only"; the limits.
+2. The four sentences of the privacy policy and the text of the form are built as proposed. The owner reads these exact words before the merge of T1 (they were not shown to him word for word when he said "go").
+3. Build T1 after #1612, with the cut "the server first, then the screens" if it is too large for one commit.
+
+State: DECIDED on 2026-11-20 (see "Decided by the owner"). Nothing is built. The owner answers the "Questions for the owner" before the build of part T1 starts. Until then, each recommendation and each [Q] rule is the proposal.
 
 A member tag is a label that the managers of a community put on a member, for example "Founder" or "Onboarded". The platform has none today. This document holds the design (numbered decisions, each with its reason), the cut in four parts (T1 to T4), the full brief of part T1, and the scope lists of parts T2 to T4. Three other slices of the launch scope use tags: the member directory (#148), the bulk invitations from a CSV file (#1390) and the invite links (#1391). So the data model comes first, and section "The contract for #1390 and #1391" says what they get. A tag is personal data: data rules 8 to 10 apply. Paths are relative to `~/wks/knowii`.
 

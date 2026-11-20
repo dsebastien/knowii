@@ -1,8 +1,13 @@
 # Brief: events, slice E2: answers, places, the calendar file and "My events" (knowii-oss/knowii#1515)
 
+## Decided by the owner on 2026-11-20
+
+1. Every recommendation of "Questions for the owner" is the decision, with the change of the review (the answer of a member without access to the space counts for nothing until the access is back). The retention line of the privacy policy is approved: "Answers to events: {{retention.event_answers}} after the event, or until you leave the community."
+2. Part E2a goes through the gate (#1694). Part E2b follows, then part E2c gets its full brief.
+
 Part E2a is built and reviewed (2026-11-20): its pull request waits for the owner (the retention line of the privacy policy, and the questions at the end). After the review, an answer of a member without access to the space counts for nothing, and every signed-in reader gets 404 for an event that they cannot see.
 
-State: DRAFT. The design is approved (#1388, 2026-11-16, with its 18 decisions). Part E2a is in build since 2026-11-20: until the owner answers the "Questions for the owner" at the end, the builder builds what each recommendation and each [Q] rule says.
+State: DECIDED on 2026-11-20 (see "Decided by the owner"). The design is approved (#1388, 2026-11-16, with its 18 decisions). Part E2a is in build since 2026-11-20: until the owner answers the "Questions for the owner" at the end, the builder builds what each recommendation and each [Q] rule says.
 
 Slice E2 lets a member answer an event, holds the limit of places, gives the meeting address to the members who answer Yes when the host asks for it, gives one calendar file per event, and adds the page "My events". It builds on E1a (#1513) and E1b (#1514), which are in `main` (ADR 0053). E2 is too large for one commit. This brief cuts it in three parts: E2a (the server), E2b (the screens of the answers), E2c (the calendar file and "My events"). Part E2a is written in full. Parts E2b and E2c are scope lists of ten lines each: each one gets its own full brief when the part before it is reviewed. Paths are relative to `~/wks/knowii`.
 

@@ -1,6 +1,11 @@
 # Brief: a headline on the member profile, with its visibility switch (knowii-oss/knowii#1688)
 
-State: DRAFT. The owner answers the "Questions for the owner" before the build starts.
+## Decided by the owner on 2026-11-20
+
+1. Every recommendation of "Questions for the owner" is the decision: the maximum is 80 characters; the privacy policy gets the word "headline" in the profile sentence, with a new `updated` date (approved); the headline is not in the search, the mention list or the other member lists in this slice; no moderator action in this slice (issue #1696); the API route for the profile update is a separate issue (#1695).
+2. The slice can be built.
+
+State: DECIDED on 2026-11-20 (see "Decided by the owner"). The owner answers the "Questions for the owner" before the build starts.
 
 You build #1688. A headline is one short line that a member writes about themselves ("Product designer, writes about note-taking"). After this slice, a member writes it on the profile form, chooses who sees it with the switch of ADR 0020, and the member page shows it under the name. The member list of the API gives it under the same rule, so that the member directory (#148, the next slice) has its one line from the start. The headline is new personal data: the export, the deletion and the privacy policy follow. ONE commit on a local branch: a reviewer reads your diff afterwards. Paths are relative to `~/wks/knowii`.
 

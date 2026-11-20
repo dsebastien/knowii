@@ -1,6 +1,11 @@
 # Brief: events, slice E2b: the screens of the answers (knowii-oss/knowii#1515)
 
-State: DRAFT. Part E2a (the server of the answers and of the limit of places) is built and reviewed. It is the ONE commit `c3ce5487` on the branch `feat/1515-events-e2a` (pull request #1694, not merged yet). This brief is the full text of part E2b. Part E2c (the calendar file and "My events") gets its own brief.
+## Decided by the owner on 2026-11-20
+
+1. The words, the pictures and every recommendation of "Questions for the owner" are approved.
+2. One more behavior: on a full event, a member with a Yes who chooses another answer or clears the answer gets one confirmation question ("Give up your place?") before the save. It is added to the commit of this slice.
+
+State: DECIDED on 2026-11-20 (see "Decided by the owner"). Part E2a (the server of the answers and of the limit of places) is built and reviewed. It is the ONE commit `c3ce5487` on the branch `feat/1515-events-e2a` (pull request #1694, not merged yet). This brief is the full text of part E2b. Part E2c (the calendar file and "My events") gets its own brief.
 
 You build the screens of the answers. A member answers an event on its page. The member reads the places that are left. The host, the owner and the admins read who answered. The form of the host gets three fields. ONE commit on a local branch: a reviewer reads your diff afterwards. Paths are relative to `~/wks/knowii`.
 

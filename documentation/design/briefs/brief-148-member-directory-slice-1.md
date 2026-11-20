@@ -1,5 +1,11 @@
 # Brief: the member directory, slice 1: a page that lists the members of a community (knowii-oss/knowii#148)
 
+## Decided by the owner on 2026-11-20
+
+1. Every recommendation of "Questions for the owner" is the decision: slice 1 merges before the "hide myself" setting, and the #1466 slice lands before the import of the live community; no bio excerpt (the headline of #1688 is the one line); the default sort is "A to Z"; a role badge only for the owner, the admins and the moderators; two people with a block still see each other; the setting "members, or managers only" is the second later slice.
+2. The approved sentence of the privacy policy, in place of the one about the owner and the administrators: "The members of a community see its member list: your name, your username, your picture, your headline, your role and the date you joined." (the words "your headline" follow the decision on #1688).
+3. Build after #1688 is merged, and refresh this brief first (point 5 of the section below).
+
 ## Decided after this draft (owner, 2026-11-20)
 
 1. Member profiles get a headline (#1688), and the directory shows it. The headline lands before this slice.
@@ -8,7 +14,7 @@
 4. The search stays a search by name in this slice.
 5. Refresh this brief when #1688 is merged, before the build: its rules 8, 9 and 30, its tests 3.3, 3.4 and 3.11 and point 6 of "NOT in this commit" still assume six fields and no loaded relation, and it names #1423 for the headline in place of #1688.
 
-State: DRAFT. The owner answers the "Questions for the owner" before the build starts.
+State: DECIDED on 2026-11-20 (see "Decided by the owner"). The owner answers the "Questions for the owner" before the build starts.
 
 You build the first slice of #148. Today a member finds another member only through a post, a mention, the online list or a search field in a form. After this slice, each community has a page "Members": a list of its members with a search by name, two sorts and "Load more". Each entry opens the member page that exists. The page is for the members of the community only. The API list of the members exists already: it gets one new parameter, `sort`. No new table, no new column, no new personal data. ONE commit on a local branch: a reviewer reads your diff afterwards. Paths are relative to `~/wks/knowii`.
 
