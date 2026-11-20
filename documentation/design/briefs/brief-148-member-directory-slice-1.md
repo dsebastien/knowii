@@ -6,6 +6,7 @@
 2. So an entry of the directory holds one more field: the headline, under the rule of ADR 0020 (only when the member shows it). `MemberWithRoleResource` gives it under that rule, and a test proves that a hidden headline is not in the answer of the list, for a member and for a manager alike unless ADR 0020 says otherwise for managers.
 3. This answers question 2 of "Questions for the owner": no bio excerpt, the headline is the one line. Where a rule or a fact below says that an entry holds no profile field, read it with this change: the headline is the only profile field of an entry.
 4. The search stays a search by name in this slice.
+5. Refresh this brief when #1688 is merged, before the build: its rules 8, 9 and 30, its tests 3.3, 3.4 and 3.11 and point 6 of "NOT in this commit" still assume six fields and no loaded relation, and it names #1423 for the headline in place of #1688.
 
 State: DRAFT. The owner answers the "Questions for the owner" before the build starts.
 
