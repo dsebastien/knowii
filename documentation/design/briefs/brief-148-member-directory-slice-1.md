@@ -1,5 +1,12 @@
 # Brief: the member directory, slice 1: a page that lists the members of a community (knowii-oss/knowii#148)
 
+## Decided after this draft (owner, 2026-11-20)
+
+1. Member profiles get a headline (#1688), and the directory shows it. The headline lands before this slice.
+2. So an entry of the directory holds one more field: the headline, under the rule of ADR 0020 (only when the member shows it). `MemberWithRoleResource` gives it under that rule, and a test proves that a hidden headline is not in the answer of the list, for a member and for a manager alike unless ADR 0020 says otherwise for managers.
+3. This answers question 2 of "Questions for the owner": no bio excerpt, the headline is the one line. Where a rule or a fact below says that an entry holds no profile field, read it with this change: the headline is the only profile field of an entry.
+4. The search stays a search by name in this slice.
+
 State: DRAFT. The owner answers the "Questions for the owner" before the build starts.
 
 You build the first slice of #148. Today a member finds another member only through a post, a mention, the online list or a search field in a form. After this slice, each community has a page "Members": a list of its members with a search by name, two sorts and "Load more". Each entry opens the member page that exists. The page is for the members of the community only. The API list of the members exists already: it gets one new parameter, `sort`. No new table, no new column, no new personal data. ONE commit on a local branch: a reviewer reads your diff afterwards. Paths are relative to `~/wks/knowii`.
