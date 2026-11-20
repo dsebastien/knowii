@@ -4,7 +4,13 @@
 
 1. Every recommendation of "Questions for the owner" is the decision: slice 1 merges before the "hide myself" setting, and the #1466 slice lands before the import of the live community; no bio excerpt (the headline of #1688 is the one line); the default sort is "A to Z"; a role badge only for the owner, the admins and the moderators; two people with a block still see each other; the setting "members, or managers only" is the second later slice.
 2. The approved sentence of the privacy policy, in place of the one about the owner and the administrators: "The members of a community see its member list: your name, your username, your picture, your headline, your role and the date you joined." (the words "your headline" follow the decision on #1688).
-3. Build after #1688 is merged, and refresh this brief first (point 5 of the section below).
+3. The refresh after #1688 (the headline is built: pull request #1700). Read every rule below with these changes:
+   1. An entry of the member list holds seven fields: the six of before, and `headline`. `MemberWithRoleResource` already gives `headline` under the rule of ADR 0020 (an empty text for a hidden or an empty headline), and the query of the member list already loads the profile for it with one query for the whole page (4 queries in all). So the rules and the tests that say "six fields", "no profile field" or "no loaded relation" (rules 8, 9 and 30, tests 3.3, 3.4 and 3.11, point 6 of "NOT in this commit") now say: the headline is the ONLY profile field of an entry, and the number of queries of a page does not grow with the number of members.
+   2. The entry of the directory shows the headline under the name and the username, when it is not empty. It wraps, and it never makes the row scroll sideways at 360 px (a headline has 80 characters at most).
+   3. Where this brief names #1423 for the headline, read #1688.
+   4. `LoadMoreButton`, `Skeleton`, `InputLabel` and `InputError` are toolkit blocks of `main` now: use them, and drop every fallback of this brief for a block that was not merged.
+   5. The search stays a search by name. The headline is not searched.
+4. Build on top of the branch of #1688 (`feat/1688-profile-headline`) until it is merged.
 
 ## Decided after this draft (owner, 2026-11-20)
 
