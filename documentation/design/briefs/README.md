@@ -10,5 +10,6 @@ A brief is the task text for one slice: the rules that are decided, the scope, a
 | `brief-1688-profile-headline.md`        | #1688 | Draft of 2026-11-20: the headline of a profile, before the member directory. The owner answers its five questions before the build.                        |
 | `brief-148-member-directory-slice-1.md` | #148  | Draft of 2026-11-20: the first slice of the member directory. The headline (#1688) lands first. The owner answers its questions before the build.          |
 | `brief-1515-events-e2.md`               | #1515 | Events E2 in three parts. Part E2a (the server of the answers and the places) is in build since 2026-11-20, with the recommendations of its six questions. |
+| `brief-657-toolkit-slice-5.md`          | #657  | In build since 2026-11-20, on top of slice 4c: the documentation pages and the publication workflow. The owner enables the page site before the merge.     |
 
 When a slice is merged, its brief is deleted from this branch.
