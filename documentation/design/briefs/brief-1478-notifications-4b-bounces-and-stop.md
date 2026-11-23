@@ -1,6 +1,12 @@
 # Brief: notifications slice 4b, bounces, complaints and the one-click stop (knowii-oss/knowii#1478)
 
-State: DRAFT on 2026-11-23. Nothing is built. The owner answers "Questions for the owner" and approves "The words" word for word before the merge. Until then, each recommendation and each [W] text is the proposal. The build can start before these answers: the words live in one file per screen, and a change of a word is a change in that file only.
+State: DECIDED on 2026-11-23 (see "Decided by the owner"). Nothing is built.
+
+## Decided by the owner on 2026-11-23
+
+1. Every recommendation of "Questions for the owner" is the decision (questions 1 to 5).
+2. The words: build with the 36 texts of "The words" as written. The owner approves them word for word with the pictures, before the merge. The policy lines and the sub-processor line merge only after that approval; a change of a word is one line.
+3. There is no check by counsel before the first notification email, for this slice and for slice 4c (#1610 closed as "Won't do").
 
 There is no check by counsel. The owner closed #1610 on 2026-11-23 with "Won't do". Do not wait for it, and do not write "counsel" in the code, the ADR or the documents. The legal words of this slice still need the approval of the owner, word for word, before the merge.
 
