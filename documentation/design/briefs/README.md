@@ -5,6 +5,5 @@ A brief is the task text for one slice: the rules that are decided, the scope, a
 | Brief                                             | Issue | State                                                                                                                                                                        |
 | ------------------------------------------------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `brief-1389-member-tags.md`                       | #1389 | T1 is merged (#1710, 2026-11-22, ADR 0060). Next: T2 (tags next to the author), T3 (bulk tagging and the filter), T4 (tags in the directory), each from its scope list here. |
-| `brief-1478-notifications-4b-bounces-and-stop.md` | #1478 | Decided on 2026-11-23, its words approved word for word. In build.                                                                                                           |
 
 When a slice is merged, its brief is deleted from this branch.
