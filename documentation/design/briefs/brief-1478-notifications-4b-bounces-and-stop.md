@@ -5,7 +5,7 @@ State: DECIDED on 2026-11-23 (see "Decided by the owner"). Nothing is built.
 ## Decided by the owner on 2026-11-23
 
 1. Every recommendation of "Questions for the owner" is the decision (questions 1 to 5).
-2. The words: build with the 36 texts of "The words" as written. The owner approves them word for word with the pictures, before the merge. The policy lines and the sub-processor line merge only after that approval; a change of a word is one line.
+2. The words: the owner approved the 36 texts of "The words" word for word on 2026-11-23, the policy lines and the sub-processor line included. Build them exactly as written. He looks at the pictures after the merge; a change of a look or a word is then one small commit.
 3. There is no check by counsel before the first notification email, for this slice and for slice 4c (#1610 closed as "Won't do").
 
 There is no check by counsel. The owner closed #1610 on 2026-11-23 with "Won't do". Do not wait for it, and do not write "counsel" in the code, the ADR or the documents. The legal words of this slice still need the approval of the owner, word for word, before the merge.
